@@ -1,0 +1,48 @@
+Description :
+
+1.	Data Structures:
+String: The main content of the text is typically stored as a string. This string will be manipulated based on user commands.
+
+Stack: Stacks are essential for implementing undo and redo operations. You can use two stacks: one for undo and one for redo. Each stack stores the previous states of the text, allowing users to revert and reapply changes.
+ 
+
+2.	TextEditor Class Implementation:
+Define a class called TextEditor with private data members text, undoStack, and redoStack. These data members will store the text content, the history of changes for undo, and the history of undone actions for redo.
+ 
+
+3.	Insert Method:
+•	The insert method takes a newText parameter and inserts it at the end of the current text.
+•	Push the current text onto the undoStack to keep track of the previous state.
+•	Append the newText to the current text.
+•	Clear the redoStack as inserting new text invalidates any redo actions.
+ 
+
+4.	DeleteChars Method:
+•	The deleteChars method takes an integer count as a parameter and deletes the last count characters from the text.
+•	Push the current text onto the undoStack to keep track of the previous state.
+•	Erase characters from the end of the text using the erase method.
+•	Clear the redoStack as deleting text invalidates any redo actions.
+ 
+5.	undo Method:
+•	The undo method reverts the last action by popping the top state from the undoStack.
+•	Push the current text onto the redoStack to enable redo.
+•	Set the text to the state retrieved from the undoStack.
+ 
+
+6.	redo Method:
+•	The redo method reapplies the last undone action by popping the top state from the redoStack.
+•	Push the current text onto the undoStack to enable undo.
+•	Set the text to the state retrieved from the redoStack.
+
+
+7.	Display Method:
+•	The display method prints the current text to the console.
+ 
+8.	Main Function:
+•	Inside the main function:
+•	Create an instance of the TextEditor class called editor.
+•	Enter a do-while loop to display a menu and accept user choices until the user selects to exit.
+•	Based on the user's choice, call the appropriate method of the editor object to perform the corresponding action (insert, delete, undo, redo, display, exit).
+•	Handle user input for inserting text and deleting characters.
+•	Display appropriate messages and take necessary actions for undoing and redoing.
+•	Loop until the user selects to exit.
